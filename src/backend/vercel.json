@@ -16,10 +16,5 @@
       "dest": "app/main.py"
     }
   ],
-  "env": {
-    "BETTER_AUTH_SECRET": "@better_auth_secret",
-    "DATABASE_URL": "@database_url",
-    "ENVIRONMENT": "production"
-  },
   "regions": ["iad1"]
 }
