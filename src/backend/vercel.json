@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "runtime": "python3.9"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/main.py"
+    }
+  ],
+  "env": {
+    "BETTER_AUTH_SECRET": "@better_auth_secret",
+    "DATABASE_URL": "@database_url",
+    "ENVIRONMENT": "production"
+  },
+  "regions": ["iad1"]
+}
