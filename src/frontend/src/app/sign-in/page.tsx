@@ -43,16 +43,16 @@ function SignInForm() {
   return (
     <div className="w-full max-w-md">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-lg mb-4">
-          <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-3xl shadow-2xl mb-6 transform hover:scale-110 transition-transform duration-300">
+          <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
         </div>
-        <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-        <p className="text-white/80">Sign in to continue to your tasks</p>
+        <h1 className="text-4xl font-extrabold text-white mb-3 drop-shadow-lg">Sign In</h1>
+        <p className="text-white/90 text-lg drop-shadow-md">to Manage Your Daily Tasks Friendly</p>
       </div>
 
-      <div className="bg-white rounded-3xl shadow-2xl p-8">
+      <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 border border-white/20">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
@@ -147,10 +147,21 @@ function LoadingFallback() {
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 p-4">
-      <Suspense fallback={<LoadingFallback />}>
-        <SignInForm />
-      </Suspense>
+    <div className="min-h-screen flex items-center justify-center relative p-4 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/login.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-600/75 via-purple-600/75 to-pink-600/75" />
+      </div>
+
+      <div className="relative z-10 w-full flex items-center justify-center">
+        <Suspense fallback={<LoadingFallback />}>
+          <SignInForm />
+        </Suspense>
+      </div>
     </div>
   );
 }

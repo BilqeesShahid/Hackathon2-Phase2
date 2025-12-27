@@ -79,9 +79,18 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 flex flex-col">
+    <div className="min-h-screen relative flex flex-col overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="fixed inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/task12.webp')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-600/75 via-purple-600/75 to-pink-600/75" />
+      </div>
+
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-white/20">
+      <header className="bg-gradient-to-r from-purple-300/95 via-pink-300/95 to-purple-300/95 backdrop-blur-sm shadow-lg border-b border-purple-400/70 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
@@ -89,11 +98,11 @@ export default function DashboardPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">TaskMaster</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-900 to-pink-900 bg-clip-text text-transparent">TaskMaster</h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <p className="text-sm font-medium text-gray-700">{user.email}</p>
+              <p className="text-sm font-medium text-purple-950">{user.email}</p>
             </div>
             <button
               onClick={handleSignOut}
@@ -109,7 +118,7 @@ export default function DashboardPage() {
       </header>
 
       {/* Welcome Section */}
-      <div className="bg-white/10 backdrop-blur-md text-white shadow-xl border-b border-white/20">
+      <div className="bg-white/10 backdrop-blur-md text-white shadow-xl border-b border-white/20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 drop-shadow-lg">Welcome to Your Task Records</h2>
           <p className="text-white/90 text-lg drop-shadow">Organize, track, and accomplish your goals efficiently</p>
@@ -117,7 +126,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Main content */}
-      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex-grow relative z-10">
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl mb-4">
             {error}
@@ -140,15 +149,15 @@ export default function DashboardPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/95 backdrop-blur-sm border-t border-white/20 mt-auto shadow-lg">
+      <footer className="bg-gradient-to-r from-purple-300/95 via-pink-300/95 to-purple-300/95 backdrop-blur-sm border-t border-purple-400/70 mt-auto shadow-lg relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
-              <p className="text-gray-700 font-semibold">Made with ❤️ by Bilqees Shahid</p>
-              <p className="text-sm text-gray-500 mt-1">© {new Date().getFullYear()} All rights reserved</p>
+              <p className="text-purple-950 font-semibold">Made with ❤️ by Bilqees Shahid</p>
+              <p className="text-sm text-purple-800 mt-1">© {new Date().getFullYear()} All rights reserved</p>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
-              <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2 text-purple-900">
+              <svg className="w-5 h-5 text-purple-800" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <span className="text-sm font-medium">TaskMaster Pro</span>
